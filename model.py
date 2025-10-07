@@ -21,10 +21,12 @@ torch.serialization.add_safe_globals([
 ])
 
 if __name__ == '__main__':
-
+        
+    filepath = "FILEPATHNAME"    #EDIT THIS TO WHERE YOU HAVE SAVED TURTLE FACES
+    
     # Data Model and Set up
     print("Setting up dataset and model...")
-    metadata = ReunionTurtles('/Users/kaitobremner/Desktop/TRACC/Turtle ID/Turtle Data/Reunion')
+    metadata = ReunionTurtles(filepath)
     name = 'hf-hub:BVRA/MegaDescriptor-B-224'
     transform = T.Compose([
         T.Resize([224, 224]), 
@@ -96,7 +98,7 @@ if __name__ == '__main__':
     print(f"Final Open-Set Accuracy: {accuracy:.4f}\n")
 
     # Visualisation, posting first 100 turtle images
-    output_dir = "/Users/kaitobremner/Desktop/TRACC/Turtle ID/Turtle Data/query_results"
+    output_dir = "OUTPUTPATHNAME"    #EDIT TO YOUR FILEPATH    
     os.makedirs(output_dir, exist_ok=True)
 
     for i in range(min(100, len(query_df))):
